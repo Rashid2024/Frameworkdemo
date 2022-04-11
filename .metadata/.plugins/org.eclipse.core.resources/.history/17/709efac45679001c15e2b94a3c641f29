@@ -1,0 +1,19 @@
+
+public class Arrclass {
+
+	public Arrclass() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public static void main(String[] args) {
+		
+		int []a = {9,5,7};
+	
+
+		System.out.println(a[0]);
+		System.out.println(a[1]);
+		System.out.println(a[2]);
+
+	}
+
+}

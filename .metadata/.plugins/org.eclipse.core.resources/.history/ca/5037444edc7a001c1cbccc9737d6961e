@@ -1,0 +1,61 @@
+package tests;
+import java.io.IOException;
+
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import pageobjects.AccountPage;
+import pageobjects.LandingPage;
+import pageobjects.LogingPage;
+import resources.Base;
+
+public class LoginTest extends Base {
+	
+	WebDriver driver;
+	
+	@Test (dataProvider="getLoginData")
+	public void login(String email, String password, String expectedStatus) throws IOException, InterruptedException {
+		
+		  driver = initializeDriver();
+		  driver.get(prop.getProperty("url"));
+		  
+		  LandingPage LandingPage = new LandingPage(driver);
+		  
+		  LandingPage.MyAccount().click();
+		  LandingPage.loginOption().click();
+		  
+		  Thread.sleep(3000);
+		  
+		  LogingPage LogingPage = new LogingPage(driver);
+		  
+		  LogingPage.emailAddmessField().sendKeys(email);
+		  LogingPage.passwordField().sendKeys(password);
+		  LogingPage.submitButton().click();
+		  
+		  
+		  AccountPage AccountPage = new AccountPage(driver);
+		  
+		 System.out.println( AccountPage.editAccountInformationLink().isDisplayed());
+		  
+		  
+
+}
+	@AfterMethod
+	public void closure() {
+		
+		driver.close();
+	}
+	
+	@DataProvider
+	public Object[][] getLoginData() {
+		
+		Object [] [] data = {{"Rashidtfl@gmail.com","Xoriy@83","Successfull"},{"test@gmail.com","testg1243","Failed"}};
+		
+		   return data;
+		
+	}
+	
+	
+}

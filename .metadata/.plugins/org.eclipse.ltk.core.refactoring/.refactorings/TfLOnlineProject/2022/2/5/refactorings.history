@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;TfLOnlineProject/src/test/java/Test.feature&apos; to &apos;CreateAccount.feature&apos;" description="Rename resource &apos;Test.feature&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/test/java/Test.feature" name="CreateAccount.feature" stamp="1643723255459" updateReferences="true"/>
+</session>
